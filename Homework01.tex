@@ -1,0 +1,133 @@
+\documentclass{article} % This command is used to set the type of document you are working on such as an article, book, or presentation
+
+\usepackage{geometry} % This package allows the editing of the page layout
+\usepackage{amsmath}  % This package allows the use of a large range of mathematical formula, commands, and symbols
+\usepackage{graphicx}  % This package allows the importing of images
+\usepackage{enumerate} %This package allows the use of making lists
+
+\newcommand{\question}[2][]{\begin{flushleft}
+        \textbf{Question #1}: \textit{#2}
+
+\end{flushleft}}
+\newcommand{\sol}{\textbf{Solution}:} %Use if you want a boldface solution line
+\newcommand{\maketitletwo}[2][]{\begin{center}
+        \Large{\textbf{Assignment 1}
+            
+            CS 2813 - Discrete Structures} % Name of course here
+        \vspace{5pt}
+        
+        \normalsize{Lucas Ho  % Your name here
+        
+        September 4, 2023}        % Due date
+        \vspace{15pt}
+        
+\end{center}}
+\begin{document}
+    \maketitletwo[5]  % Optional argument is assignment number
+    %Keep a blank space between maketitletwo and \question[1]
+    
+    \question[0]{This book[1] has the the answer to everything. What is the question?} 
+
+    What is the meaning of life?
+    
+    \question[1]{The propositions p NAND q and p NOR q are denoted by p $\mid$ q and p $\downarrow$ q, respectively.}
+    
+    \begin{enumerate}[a.]
+        \item {Construct a truth table for the logical operators NAND and NOR.}
+        
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                p & q & p $\mid$ q & p $\downarrow$ q \\
+                \hline
+                T & T & F & F \\
+                T & F & T & F \\
+                F & T & T & F \\
+                F & F & T & T \\
+                \hline
+            \end{tabular}
+
+        \end{center}
+
+        \item {Show that p $\mid$ q is logically equivalent to $\neg$(p $\land$ q).}
+        
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                p & q & $\neg$(p $\land$ q) & p $\mid$ q \\
+                \hline
+                T & T & F & F \\
+                T & F & T & T \\
+                F & T & T & T \\
+                F & F & T & T \\
+                \hline
+            \end{tabular}
+
+        \end{center}
+    \end{enumerate}
+    
+    \question[2]{A proposition is satisfiable if some setting of the variables makes the proposition true. For example, p $\land$ $\neg$q is satisfiable because the expression is true if p is true and q is false. On the other hand, p $\land$ $\neg$p is not satisfiable because the expression as a whole is false for both settings of p. But determining whether or not a more complicated proposition is satisfiable is not so easy. How about this one?}
+
+    \begin{center}
+        (p $\lor$ q $\lor$ r) $\land$ ($\neg$p $\lor$ $\neg$q) $\land$ ($\neg$p $\lor$ $\neg$r) $\land$ ($\neg$r $\lor$ $\neg$q)
+    \end{center}
+
+    \begin{enumerate}[a.]
+        \item {Find whether or not the previous compound proposition is satisfiable?}
+        
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|c|c|c|}
+                \hline
+                p & q & r & p $\lor$ q $\lor$ r & $\neg$p $\lor$ $\neg$q & $\neg$p $\lor$ $\neg$r & $\neg$r $\lor$ $\neg$q \\
+                \hline
+                T & F & F & T & T & T & T \\
+                \hline
+            \end{tabular}
+
+        \end{center}
+
+        The previous compound proposition is satisfiable.
+
+        \item {Given the following disjunctions, determine whether each is satisfiable. Use a different approach to how
+        you solved a).}
+        \begin{enumerate}[i)]
+            \item {(p $\lor$ q $\lor$ $\neg$r) $\land$ (p $\lor$ $\neg$q $\lor$ $\neg$s) $\land$ (p $\lor$ $\neg$r $\lor$ $\neg$s) $\land$ ($\neg$p $\lor$ $\neg$q $\lor$ $\neg$s) $\land$ (p $\lor$ q $\lor$ $\neg$s)}
+            
+            This proposition is satisfiable for any p or q as long as r and s are false.
+
+            \item {($\neg$p $\lor$ $\neg$q $\lor$ r) $\land$ ($\neg$p $\lor$ q $\lor$ $\neg$s) $\land$ (p $\lor$ $\neg$q $\lor$ $\neg$s) $\land$ ($\neg$p $\lor$ $\neg$r $\lor$ $\neg$s) $\land$ (p $\lor$ q $\lor$ $\neg$r) $\land$ (p $\lor$ $\neg$r $\lor$ $\neg$s)}
+            
+            This proposition is not satisfiable as it is not possible for both ($\neg$p $\lor$ $\neg$q $\lor$ r) and (p $\lor$ q $\lor$ $\neg$r) to both occur.
+
+            \item {(p $\lor$ q $\lor$ r) $\land$ (p $\lor$ $\neg$q $\lor$ $\neg$s) $\land$ (q  $\lor$ $\neg$r $\lor$ s) $\land$ ($\neg$p $\lor$ r $\lor$ s) $\land$ ($\neg$p $\lor$ q $\lor$ $\neg$s) $\land$ (p $\lor$ $\neg$q $\lor$ $\neg$r) $\land$ ($\neg$p $\lor$ $\neg$q $\lor$ s) $\land$ ($\neg$p $\lor$ $\neg$r $\lor$ $\neg$s)}
+            
+            This proposition is not satisfiable because p is unable to be both true and false. p is of note here because after expanding the compound proposition with logical equivalences, there are propositions of (p $\land$ $\neg$p) which help determine satiability.
+        \end{enumerate}
+        \item {Alice claims she wrote an ’efficient’ algorithm for determining whether a compound proposition is satisfiable or not. Bob believes Alice; can Bob use Alice’s algorithm to determine whether a compound
+        proposition p is a tautology or not?}
+
+        Yes 
+
+        \item {Why is it not easy to generalize a truth table for any complex proposition? In other words, is there a
+        more eﬀicient solution to this problem? Do you think Alice from c) is lying?}
+
+        You can use logical equivalences to solve any complex propositions so Alice is not lying.
+
+    \end{enumerate}
+
+    \question[3] {Show that $\neg$p $\rightarrow$ (q $\rightarrow$ r) and q $\rightarrow$ (p $\lor$ r) are logically equivalent. Use Logical Equivalences not truth tables.}
+
+    p $\lor$ (q $\rightarrow$ r)
+
+    p $\lor$ $\neg$q $\lor$ r
+
+    $\neg$q $\lor$ p $\lor$ r
+
+    q $\rightarrow$ (p $\lor$ r)
+
+    \begin{center}
+        REFERENCES
+    \end{center}
+
+    [1] D. Adams. \emph{The Hitchhiker’s Guide to the Galaxy.} San Val, 1995.
+\end{document}
