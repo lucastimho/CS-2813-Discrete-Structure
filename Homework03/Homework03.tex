@@ -1,0 +1,136 @@
+\documentclass{article} % This command is used to set the type of document you are working on such as an article, book, or presentation
+
+\usepackage{geometry} % This package allows the editing of the page layout
+\usepackage{amsmath}  % This package allows the use of a large range of mathematical formula, commands, and symbols
+\usepackage{amsfonts} % This package allows the use of mathematical fonts
+\usepackage{graphicx}  % This package allows the importing of images
+\usepackage{enumerate} %This package allows the use of making lists
+
+\newcommand{\question}[2][]{\begin{flushleft}
+        \textbf{Question #1}: \textit{#2}
+
+\end{flushleft}}
+\newcommand{\sol}{\textbf{Solution}:} %Use if you want a boldface solution line
+\newcommand{\maketitletwo}[2][]{\begin{center}
+        \Large{\textbf{Assignment 3}
+            
+            CS 2813 - Discrete Structures} % Name of course here
+        \vspace{5pt}
+        
+        \normalsize{Lucas Ho  % Your name here
+        
+        October 12, 2023}        % Due date
+        \vspace{15pt}
+        
+\end{center}}
+\begin{document}
+    \maketitletwo[5]  % Optional argument is assignment number
+    %Keep a blank space between maketitletwo and \question[1]
+    
+    \question[1]{Consider the following quantified statement: For every real number x, there exists a positive real number y such that y $<$ x$\textsuperscript{2}$.}
+
+    \begin{enumerate}[(a)]
+      \item{Express this quantified statement in symbols.}
+      
+      $\forall$x $\in$ $\mathbb{R}$, $\exists$y $\in$ $\mathbb{R}$$\textsubscript{$\geq$0}$, y $<$ x$\textsuperscript{2}$
+      \item {Express the negation of this quantified statement in symbols.}
+      
+      $\exists$x $\in$ $\mathbb{R}$, $\forall$y $\in$ $\mathbb{R}$$\textsubscript{$\geq$0}$, y $\geq$ x$\textsuperscript{2}$
+      \item {Express the negation of this statement in words.}
+      
+      There exists a real number x for every positive real number y such that y is greater than or equal to x squared.
+    \end{enumerate}
+    
+    \question[2]{Prove that if r and s are rational numbers, then r - s is a rational number.}
+
+    Let r and s equal to $\frac{a}{b}$ and $\frac{c}{d}$ respectively where a, b, c, and d are all integers.
+
+    Then r - s = $\frac{ad - bc}{cd}$
+
+    ad - bc and cd are both rational numbers which makes r - s is a rational number a true statement.
+
+    \question[3]{Let x and y be integers. Prove that if x + y $\geq$ 9, then either x $\geq$ 5 or y $\geq$ 5.}
+
+    Let x and y equal to 4.5
+
+    x + y = 9
+
+    This disproves the statement that if x + y $\geq$ 0, then x $\geq$ 5 or y $\geq$ 5 as 4.5 $<$ 5.
+
+    \question[4]{Let m and n be two integers. Prove that mn and m + n are both even if and only
+    if m and n are both even.}
+
+    mn = 2($\frac{mn}{2}$) = 2l where l is any integer.
+    
+    This statement is only true if m and n are even numbers.
+
+    m + n = 2($\frac{m + n}{2}$) = 2l where l is any integer.
+
+    This statment is only true if m and n are even numbers.
+
+    Both statements are only true if m and n are even numbers which proves the original statement.
+
+    \question[5]{Disprove: Let A, B, and C be sets. If A $\cup$ B = A $\cup$ C, then B = C.}
+
+    Let A = $\{$1, 2, 3$\}$, B = $\{$1, 2$\}$, and C = $\{$2, 3$\}$
+
+    A $\cup$ B = A $\cup$ C = $\{$1, 2, 3$\}$
+
+    But B $\neq$ C which disproves the original statement.
+
+    \question[6]{Prove that if a and b are positive real numbers, then $\sqrt{a}$ + $\sqrt{b}$ $\neq$ $\sqrt{a + b}$}
+
+    Let a and b equal 1
+
+    $\sqrt{1}$ + $\sqrt{1}$ $\neq$ $\sqrt{2}$
+    
+    From this statement this is in line with the original statement[1]
+
+    \question[7]{Let r $\geq$ 2 be an integer. Prove that 1 + r + r$\textsuperscript{2}$ + $\dots$ + r$\textsuperscript{n}$ = $\frac{r\textsuperscript{n + 1} - 1}{r - 1}$ for every positive integer n.}
+
+    Let the above summation be summarized to $\sum_{1}^{n} r^{n - 1}$
+
+    This is a geometric sequence which has a formula equal to $\frac{r\textsuperscript{n + 1} - 1}{r - 1}$
+
+    This formula is equal to the original formula which proves the orignal statement
+
+    \question[8]{Prove that $\frac{1}{\sqrt{1}}$ + $\frac{1}{\sqrt{2}}$ + $\dots$ + $\frac{1}{\sqrt{n}}$ $>$ $\sqrt{n + 1}$ for every integer n $\geq$ 3}
+
+    Let the above summation be summarized to $\sum_{1}^{n} n^{{-\frac{1}{2}}}$
+
+    This is a geometric sequence which has a formula equal to 2$\ln$(n) - 1
+
+    2$\ln$(n) - 1 > $\sqrt{n + 1}$ which proves the original statement
+
+    \question[9]{A sequence a$\textsubscript{1}$, a$\textsubscript{2}$, a$\textsubscript{3}$, $\dots$ is defined recursively by a$\textsubscript{1}$ = 3 and a$\textsubscript{n}$ = 2a$\textsubscript{n - 1}$ + 1 for n $\geq$ 2}
+
+    \begin{enumerate}[(a)]
+        \item {Detemine a$\textsubscript{2}$, a$\textsubscript{3}$, a$\textsubscript{4}$, and a$\textsubscript{5}$}
+        
+        7, 15, 31, 63
+        \item {Based on the values obtained in (a), make a guess for a formula for every positive integer n and us induction to verify that your guess is correct.}
+        
+        a$\textsubscript{n}$ = 2$\textsuperscript{n + 1}$ - 1
+        
+    \end{enumerate}
+
+    \question[10]{A sequence $\{$a$\textsubscript{n}$$\}$ is defined recursively by a$\textsubscript{1}$ = 5, a$\textsubscript{2}$ = 7 and a$\textsubscript{n}$ = 3a$\textsubscript{n - 1}$ - 2a$\textsubscript{n - 2}$ - 2 for n $\geq$. Prove that a$\textsubscript{n}$ = 2n + 3 for every positive integer n.}
+
+    For a$\textsubscript{1}$ = 2(1) + 3 = 5
+
+    For a$\textsubscript{n}$ = 2n + 3
+
+    For a$\textsubscript{n + 1}$ = 2(n + 1) + 3 = 2n + 3 + 2
+
+    a$\textsubscript{n + 1}$ = a$\textsubscript{n}$ + 2
+
+    Through inductive reasoning the original statement holds true[2]
+
+    \begin{center}
+        REFERENCES
+    \end{center}
+
+    [1] ChatGPT. Prove a and b are real numbers then sqrt(a) + sqrt(b) $\neq$ sqrt(a+b), Retrieved : 2023, October 12.
+    [2] ChatGPT. Prove a$\textsubscript{n}$ = 2n + 3 by mathematical induction, Retrieved : 2023, October 12. 
+
+\end{document}
