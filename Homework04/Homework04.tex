@@ -1,0 +1,123 @@
+\documentclass{article} % This command is used to set the type of document you are working on such as an article, book, or presentation
+
+\usepackage{geometry} % This package allows the editing of the page layout
+\usepackage{amsmath}  % This package allows the use of a large range of mathematical formula, commands, and symbols
+\usepackage{amsfonts} % This package allows the use of mathematical fonts
+\usepackage{graphicx}  % This package allows the importing of images
+\usepackage{enumerate} %This package allows the use of making lists
+
+\newcommand{\question}[2][]{\begin{flushleft}
+        \textbf{Question #1}: \textit{#2}
+
+\end{flushleft}}
+\newcommand{\sol}{\textbf{Solution}:} %Use if you want a boldface solution line
+\newcommand{\maketitletwo}[2][]{\begin{center}
+        \Large{\textbf{Assignment 4}
+            
+            CS 2813 - Discrete Structures} % Name of course here
+        \vspace{5pt}
+        
+        \normalsize{Lucas Ho  % Your name here
+        
+        October 19, 2023}        % Due date
+        \vspace{15pt}
+        
+\end{center}}
+\begin{document}
+    \maketitletwo[5]  % Optional argument is assignment number
+    %Keep a blank space between maketitletwo and \question[1]
+    
+    \question[1]{Given the sets A and B, such that $\mid$A$\mid$ = k and $\mid$B$\mid$ = n,}
+
+    \begin{enumerate}[(a)]
+      \item {what is the number of functions f: A $\rightarrow$ B?}
+      
+      n$\textsuperscript{k}$ [1]
+    %    - $\textsuperscript{n}$C$\textsubscript{1}$(n-1)$\textsuperscript{k}$ + $\textsuperscript{n}$C$\textsubscript{2}$(n-2)$\textsuperscript{k}$ - $\textsuperscript{n}$C$\textsubscript{3}$(n-3)$\textsuperscript{k}$ + $\dots$ - $\textsuperscript{n}$C$\textsubscript{n-1}$(1)$\textsuperscript{k}$
+
+      
+      \item {prove your answer by either a direct proof featuring a decision tree or by induction (or both)}
+      
+      For k = 0, the number of functions would be 1 which is a true statement. If one more element is added to set A then the number of functions would be n$\textsuperscript{k + 1}$ which is a true statement. The number of functions increases exponentially for each added element and create n$\textsuperscript{k}$ * n functions which equals n$\textsuperscript{k + 1}$.
+    \end{enumerate}
+
+    \question[2]{How many ways are there to arrange n people in a row? We learned that this is called a permutation of set A = $\{$1, 2, 3, $\dots$, n$\}$ and is given by $\textsuperscript{n}$P$\textsubscript{n}$ = (n)!. How about seating people at a
+    round table. So, how many ways are there to seat n people at a round table? And why (explain)?}
+
+    Since the people are seated on a round table, rotating the table can result in the same arrangment so you divide the linear arrangement by the number of people which results in $\frac{(n-1)!}{n}$ [2]
+
+    \question[3]{Prove that given two given sets A and B with ($\mid$A$\mid$ = m) $>$ (n = $\mid$B$\mid$) then for any function f: A $\rightarrow$ B there exists b $\in$ B such that}
+    \begin{center}
+        $\mid$$\{$x $\in$ A: f(x) = b$\}$$\mid$ $\geq$ [$\frac{m}{n}$]
+    \end{center}
+
+    Using the pigeon hole principle, there must be a cardinality is between m and n. To generally apply this principle to $\mid$f(x) = b$\mid$ a value in between m and n would $\frac{m}{n}$.
+
+    \question[4]{Prove $\binom{n}{k - 1}$ + $\binom{n}{k}$ = $\binom{n + 1}{k}$ algebraically.}
+
+    $\frac{n!}{(k-1)!(n-k+1)!}$ + $\frac{n!}{k!(n-k)!}$ = $\frac{(n+1)!}{k!(n+1-k)!}$
+
+    $\frac{n!}{(k-1)!(n-k+1)!}$$\frac{k}{k}$ + $\frac{n!}{k!(n-k)!}$$\frac{n-k+1}{n-k+1}$
+
+    $\frac{n!(n-k+1)}{k!(n-k+1)!}$ + $\frac{n!k}{k!(n-k+1)}$
+
+    $\frac{n!(n-k+1)+n!k}{k!(n-k+1)!}$
+
+    $\frac{n!(n+1)}{k!(n-k+1)!}$
+
+    $\frac{(n+1)!}{k!(n+1-k)!}$ = $\frac{(n+1)!}{k!(n+1-k)!}$ [3]
+
+    \question[5]{}
+    \begin{enumerate}[(a)]
+        \item {How many ways are there to permute the letters of the word "HAPPY" and get distinct 'words'/strings? Explain your answer and generalize it so you can solve (b) and (c).}
+        
+        This is a permuation of a multiset which follows the general formula of $\frac{n!}{n\textsubscript{1}! * n\textsubscript{2}! * \dots * n\textsubscript{k}!}$
+
+        All letter appear once except for 'P' which appears twice so the HAPPY has $\frac{5!}{2!}$ = 60 permuations [4]
+        \item {How many for the letters of this short German word "Waffenstillstandunterhandlungen"?}
+        
+        $\frac{31!}{3!2!3!6!2!3!3!2!2!}$ = 550,762,405,570,687,730,540,609,536
+        \item {In a card game with a single deck (no jokers), there are 52 cards, how many ways to order the decks for a game that is played with two decks shuffled together?}
+        
+        $\frac{104!}{2!}$ = 5.149508 * 10$\textsuperscript{165}$
+    \end{enumerate}
+
+    \question[6]{The Red Hat licorice makers introduce a contest “Red Hat 21,” a casino-type game played with licorice hats. They run a promotion; the tickets are anagrams of REDHAT21, and the winning tickets must either contain RED or HAT or 21. For example, RH21EDTA and HA2RED1A are winners. How many winners are there? What percentage of tickets are winners?}
+
+    RED tickets: 3! = 6
+
+    HAT tickets: 3! = 6
+
+    21 tickets: 2! = 2
+
+    RED and HAT tickets: 3! * 3! = 36
+
+    RED and 21 tickets: 3! * 2! = 12
+
+    HAT and 21 tickets: 3! * 2! = 12
+
+    RED, HAT, and 21 tickets: 3! * 3! * 2! = 72
+
+    Total winning tickets = 146
+
+    Percentage = $\frac{146}{8!}$ $\approx$ 0.023$\%$
+
+    \question[7]{Ten identical cookies are to be distributed among five different kids (A, B, C, D, and E). All 10 cookies are distributed. How many different ways can the five kids be given cookies, assuming each one at least gets one? Explain your answer!}
+
+    Using the stars and bars approach [5], the numbers of ways to distribute the 10 cookies to 5 children is $\textsuperscript{14}$C$\textsubscript{4}$ = 1001 where 14 comes from 10 cookies + 4 dividers and 4 comes from the 4 dividers
+
+    \begin{center}
+        REFERENCES
+    \end{center}
+
+    [1] Admin. (2023, August 29). Number of functions - formula and solved examples. BYJUS. https://byjus.com/jee/number-of-functions/$\#$:~:text=Number$\%$20of$\%$20Surjective$\%$20Functions$\%$20(Onto,than$\%$20or$\%$20equal$\%$20to$\%$20n.
+    
+    [2] ChatGPT. How many ways are there to seat n people at a round table, Retrieved : 2023, October 19. 
+
+    [3] Cipher. Prove That nCk + nC(k-1) = (n+1)Ck, Youtube. 2018, August 25.
+
+    [4] ChatGPT. How many ways to permute the letters in the word "HAPPY", Retrieved: 2023, October 19.
+
+    [5] Stones, Rebecca J. In how many ways can 10 (identical) dimes be distributed among five children?, Math Stack Exchange. 2016, January 29.
+
+\end{document}

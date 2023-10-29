@@ -1,0 +1,218 @@
+\documentclass{article} % This command is used to set the type of document you are working on such as an article, book, or presentation
+
+\usepackage{geometry} % This package allows the editing of the page layout
+\usepackage{amsmath}  % This package allows the use of a large range of mathematical formula, commands, and symbols
+\usepackage{amsfonts} % This package allows the use of mathematical fonts
+\usepackage{graphicx}  % This package allows the importing of images
+\usepackage{enumerate} %This package allows the use of making lists
+
+\newcommand{\question}[2][]{\begin{flushleft}
+        \textbf{Question #1}: \textit{#2}
+
+\end{flushleft}}
+\newcommand{\sol}{\textbf{Solution}:} %Use if you want a boldface solution line
+\newcommand{\maketitletwo}[2][]{\begin{center}
+        \Large{\textbf{Exam 2}
+            
+            CS 2813 - Discrete Structures} % Name of course here
+        \vspace{5pt}
+        
+        \normalsize{Lucas Ho - 113586574  % Your name here
+        
+        October 28, 2023}        % Due date
+        \vspace{15pt}
+        
+\end{center}}
+\begin{document}
+    \maketitletwo[5]  % Optional argument is assignment number
+    %Keep a blank space between maketitletwo and \question[1]
+    
+    \question[1]{In one episode of the popular 90s American sitcom ’Friends’, Joey and Rachel
+    played the following coin tossing game: If heads, Rachel wins. If tails, Joey loses.}
+
+    \begin{enumerate}[(a)]
+      \item {Who do you think won?}
+      
+      Rachel
+      \item {Write one compound proposition (in terms of p and q) that represents this game.}
+      
+      Let p be true if Rachel wins and q be true if Joey loses. p $\rightarrow$ q
+      \item {Use one word from propositional logic to describe the outcome of the game/compound proposition.}
+      
+      Disjunctive
+      
+    \end{enumerate}
+
+    \question[2]{Prove or disprove that: Given two sets A and B, $\overline{(A - B)}$ = $\overline{A}$ $\cup$ B.}
+
+    A - B = A $\cap$ $\overline{B}$
+
+    $\overline{A \cap \overline{B}}$ = $\overline{A}$ $\cup$ $\overline{\overline{B}}$
+
+    $\overline{A}$ $\cup$ B, This proves the original statement.
+
+    \question[3]{}
+
+    \begin{enumerate}[(a)]
+      \item {In bioinformatics, sequences are composed of nucleotides denoted
+      with letters (A, T, G, and C). What is the number of distinct 7-nucleotide sequences that can be con-
+      structed using the same nucleotides from the sequence GATTACA? Explain your answer.}
+
+      G = 1 nucleotide, A = 3 nucleotides, T = 2 nucleotides, C = 1 nucleotides
+
+      There are 7 nucleotides with 1! * 3! * 2! * 1! = 12 duplicates which equals $\frac{7!}{12}$ = 420 distinct sequences.
+      \item {The term k-mer refers to all of a sequence’s non-empty contiguous sequence of characters
+      (subsequences) of length k, such that the sequence ”APPLE” would have five ’1-mers’ i.e. monomers (A,
+      P, P, L, and E), four 2-mers (AP, PP, PL, LE), three 3-mers (APP, PPL, and PLE), two 4-mers (APPL,
+      PPLE), and one 5-mer (APPLE). Following this definition and example, and given a string or a sequence
+      of length L how many k-mers does this string have for any specific k?}
+
+      L - (k - 1)
+
+      \item {In the analysis of DNA sequences, CpG sites occur with high frequency in genomic regions
+      called CpG islands (or CG islands), meaning the 2-mer ’CG’ appears more often than other 2-mers in the
+      sequence. If our sequence of length 10 contains exactly 3 such CG 2-mers, and assuming the nucleotides
+      C and G are inseparable in the sequence and only appear together as CG 2-mers (e.g. TATCGTCGCG).
+      How many different sequences can we construct? Explain your answer.}
+
+      Since there are 3 2-mers in the 10 nucleotides sequence, there are (10 - 3)! = 5040 sequences.
+
+      If there are either 3 A or T in the sequence, there are $\frac{5040}{3!*3!}$ = 140 different sequences.
+
+      If there are 2 A and T in the sequence, there are $\frac{5040}{3!*2!*2!}$ = 210 different sequences
+    \end{enumerate}
+
+    \question[4]{Given a Boolean function, a Boolean sum of minterms can be formed that has
+    the value 1 when this Boolean function has the value 1, and has the value 0 when the function has the
+    value 0.
+    The sum of minterms that represents the function is called the sum-of-products expansion or the disjunc-
+    tive normal form of the Boolean function.
+    It is also possible to find a Boolean expression that represents a Boolean function by taking a Boolean
+    product of Boolean sums (maxterms, i.e. the term with the sum of N literals occurring exactly once). The
+    resulting expansion is called the conjunctive normal form or product-of-sums expansion of the function.}
+
+    \begin{enumerate}[(a)]
+      \item {Find the sum-of-products expansion of this Boolean function : F (x, y) = $\bar{x}$ + y}
+      
+      \begin{center}
+        \begin{tabular}{|c|c|c|}
+          \hline
+          x & y & F(x, y) \\
+          \hline
+          F & F & T \\
+          F & T & T \\
+          T & F & F \\
+          T & T & T \\
+          \hline
+          
+        \end{tabular}
+      \end{center}
+
+      $\overline{xy}$ + $\bar{x}$y + xy
+
+      \item {Find the product-of-sums expansion of F (x, y, z) = (x + z)y}
+      
+      \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+          \hline
+          x & y & z & F(x,y,z) \\
+          \hline
+          F & F & F & F \\
+          F & F & T & F \\
+          F & T & F & F \\
+          F & T & T & T \\
+          T & F & F & F \\
+          T & F & T & F \\
+          T & T & F & T \\
+          T & T & T & T \\
+          \hline
+          
+        \end{tabular}
+      \end{center}
+
+      ($\bar{x} + \bar{y} + \bar{z}$)($\bar{x} + \bar{y}$ + z)($\bar{x} + y + \bar{z}$)(x + $\bar{y} + \bar{z}$)(x + $\bar{y}$ + z)
+
+      \item{Explain the strategy you used to solve each of (a) and (b) above.}
+      
+      For (a), I took the sum-of-products of all the terms that were true. For (b), I took the product-of-sums of all the terms that were false.
+      
+    \end{enumerate}
+
+    \question[5]{}
+    \begin{enumerate}[(a)]
+      \item {How many functions are there from a set A of four elements to a set B with three elements? Explain your answer.}
+      
+      3$\textsuperscript{4}$ = 81 functions
+
+      For each element from set A, there's 3 elements from set B to map which equals to 81 functions.
+      \item {How many of these are one-to-one? Explain your answer.}
+      
+      None of the the functions are one-to-one because the cardinality of B is less than the cardinality of A.
+      \item {How many of these are onto? Explain your answer.}
+      
+      Using this equations from [1], the number of onto functions 3$\textsuperscript{4}$ - $\binom{3}{1}$(3-1)$\textsuperscript{4}$ + $\binom{3}{2}$(3-2)$\textsuperscript{4}$ = 81 - 48 + 3 = 36 functions.
+      
+    \end{enumerate}
+
+    \question[6]{Consider the following relations on the set of positive integers (Notes: greatest
+    common divisor (gcd) of two or more numbers is the greatest common factor number that divides them,
+    exactly. You can use examples in your justifications):}
+
+    \begin{center}
+      R$\textsubscript{1}$ = $\{$(x,y) $\mid$ x + y $>$ 10$\}$
+    \end{center}
+    \begin{center}
+      R$\textsubscript{2}$ = $\{$(x,y) $\mid$ y divides x$\}$
+    \end{center}
+    \begin{center}
+      R$\textsubscript{3}$ = $\{$(x,y) $\mid$ gcd(x,y) = 1$\}$
+    \end{center}
+    \begin{center}
+      R$\textsubscript{4}$ = $\{$(x,y) $\mid$ x and y have the same prime divisors$\}$
+    \end{center}
+    \begin{enumerate}[(a)]
+      \item {Which of these relations are reflexive? Justify your answers.}
+      
+      R$\textsubscript{2}$ and R$\textsubscript{4}$ are reflexive relations.
+
+      R$\textsubscript{1}$: (1,1) does not satify x + y $>$ 10
+
+      R$\textsubscript{2}$: Any number divides into itself
+
+      R$\textsubscript{3}$: (6,6) does not satisfy gcd(x,y) = 1
+
+      R$\textsubscript{4}$: Any number will have the same divisors to itself
+      \item {Which of these relations are symmetric? Justify your answers.}
+      
+      R$\textsubscript{1}$, R$\textsubscript{3}$, and R$\textsubscript{4}$ are symmetric relations.
+
+      R$\textsubscript{1}$: Addition is commutative so any (x,y) that satifies x + y $>$ 10 will be satified by (y,x)
+
+      R$\textsubscript{2}$: (12,2) satifies the relation but (2,12) does not
+
+      R$\textsubscript{3}$: gcd(x,y) = gcd(y,x)
+
+      R$\textsubscript{4}$: (x,y) has the same divisors as (y,x)
+      \item {Which of these relations are antisymmetric? Justify your answers.}
+      
+      R$\textsubscript{2}$ is an antisymmetric relation.
+
+      R$\textsubscript{1}$, R$\textsubscript{3}$, and R$\textsubscript{4}$ are symmetric as explained from (b) which cannot make them antisymmetric.
+      \item {Which of these relations are transitive? Justify your answers.}
+      
+      R$\textsubscript{1}$ and R$\textsubscript{3}$ are not transitive relations because they do not satify the case where xRy and yRx lead to xRx. 
+      
+      R$\textsubscript{2}$: For (12, 4) and (4, 2), (12,2) satifies the relation.
+      
+      R$\textsubscript{4}$: For (6, 12) and (12, 18), (6,18) share the same prime divisors.
+    \end{enumerate}
+
+
+    \begin{center}
+        REFERENCES
+    \end{center}
+
+    [1] Admin. (2023, August 29). Number of functions - formula and solved examples. BYJUS. https://byjus.com/jee/number-of-functions/$\#$:$\sim$:text=If$\%$20a$\%$20set$\%$20A$\%$20has,of$\%$20B$\%$20should$\%$20be$\%$20used.
+    
+
+\end{document}
