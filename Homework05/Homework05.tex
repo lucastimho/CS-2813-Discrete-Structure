@@ -1,0 +1,73 @@
+\documentclass{article} % This command is used to set the type of document you are working on such as an article, book, or presentation
+
+\usepackage{geometry} % This package allows the editing of the page layout
+\usepackage{amsmath}  % This package allows the use of a large range of mathematical formula, commands, and symbols
+\usepackage{amsfonts} % This package allows the use of mathematical fonts
+\usepackage{graphicx}  % This package allows the importing of images
+\usepackage{enumerate} %This package allows the use of making lists
+
+\newcommand{\question}[2][]{\begin{flushleft}
+        \textbf{Question #1}: \textit{#2}
+
+\end{flushleft}}
+\newcommand{\sol}{\textbf{Solution}:} %Use if you want a boldface solution line
+\newcommand{\maketitletwo}[2][]{\begin{center}
+        \Large{\textbf{Assigment 5}
+            
+            CS 2813 - Discrete Structures} % Name of course here
+        \vspace{5pt}
+        
+        \normalsize{Lucas Ho  % Your name here
+        
+        November 8, 2023}        % Due date
+        \vspace{15pt}
+        
+\end{center}}
+\begin{document}
+    \maketitletwo[5]  % Optional argument is assignment number
+    %Keep a blank space between maketitletwo and \question[1]
+    
+    \question[1]{Considering the following pseudocode from Figure 1 for the function procedure all$\_$permutations:}
+
+    \begin{enumerate}[(a)]
+      \item {Decribe what this procedure does.}
+      
+      Using S = $\{$7, 2$\}$ as an example, the function all$\_$permutations will check if the length of S is 1. Since S is not length 1, the code will proceed to the else conditional statement. A loop through each element of S in sorted order is implemented with each element referenced as "x." Sx will equal $\{$2,7$\}$ - $\{$2$\}$ = $\{$7$\}$. Then another loop is implemented for each element in Sx inputed into all$\_$permutations with each element is referenced as "P." Since Sx has a length of 1, its element is returned as P for this specific iteration of the loop. x and P are added together and stored in all$\_$perm. Then the next loop for S in sorted order is implemented. The same steps will be repeated except for this iteration x will be 7 and P will be 2. After finishing these loops, all$\_$perm will be [$\{$2,7$\}$, $\{$7,2$\}$].
+      \item {What is the growth complexity of this procedure? Explain briefly.}
+      
+      O(n(n-1)!). This complexity stems from the first loop being O(n) for looping once through each element of S. The second loop uses a recursive formula which loops factorially by n-1.
+    \end{enumerate}
+
+    \question[2]{Write all possible combinations that can be generated from elements of a set S $\{$1,2,3$\}$ in the form of a set of sets C. how many elements should your new set have? Give a generalized formula in terms of n, the number of element in S, of how many elements the set C has.}
+
+    C = $\{$$\{\}$, $\{1\}$, $\{2\}$, $\{3\}$, $\{1,2\}$, $\{1,3\}$, $\{2,3\}$, $\{$1,2,3$\}$$\}$
+
+    C has 8 elements in its set.
+
+    \[ \sum_{i = 0}^{n} \binom{i}{n} \] is a generalized formula to determine the number elements in C.
+
+    \question[4]{Given the two pseudocodes A and B in Figure 2 that are used to evaluate a polynomial $a\textsubscript{n}x\textsuperscript{n} + a\textsubscript{n-1}x\textsuperscript{n-1} + \dots a\textsubscript{1}x + a\textsubscript{0}$ at x = c.}
+    \begin{enumerate}[(a)]
+        \item {Exactly how many multiplications and additions are used to evaluate a polynomial of degree n at x = c for the algorithm given in A?}
+        
+        n multiplications and additions
+        \item {Evaluate 3x$\textsuperscript{2}$ + x + 1 at x = c by working through each step of the algorithm in B. Which algorithm do you think is more efficient? And Why?}
+        
+        y = 3
+
+        y = 3 * 2 + 1 = 7
+
+        y = 7 * 2 + 1 = 15
+
+        Algorithm B is the most efficient as both algorithms perform the same amount of loops but algorithm B performs less actions per iteration.
+        \item {What is the big O notation of both A and B?}
+        
+        O(n)
+    \end{enumerate}
+
+    \question[5]{Given a list/set S with n elements, what does the function in figure 3 do? Analyze the time complexity for this function and dive the big O value.}
+
+    The function in figure 3 performs bubble sort and has a big O notation of O(n$\textsuperscript{2}$).
+    
+
+\end{document}
